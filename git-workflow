@@ -1,0 +1,121 @@
+# 🔐 SSH Setup & Git Workflow – Velvet Lab
+
+## 🔑 SSH Setup
+
+### Cek SSH Key
+```bash
+ls ~/.ssh
+````
+
+### Generate SSH Key (jika belum ada)
+
+```bash
+ssh-keygen -t ed25519 -C "email_kamu@example.com"
+```
+
+### Jalankan SSH Agent
+
+```bash
+eval "$(ssh-agent -s)"
+```
+
+### Tambahkan SSH Key
+
+```bash
+ssh-add ~/.ssh/id_ed25519
+```
+
+### Copy Public Key
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+### Tambahkan ke GitHub
+
+1. Buka GitHub
+2. Masuk ke **Settings → SSH and GPG keys**
+3. Klik **New SSH Key**
+4. Paste key yang sudah di-copy
+
+### Tes Koneksi
+
+```bash
+ssh -T git@github.com
+```
+
+Jika berhasil:
+
+```
+Hi username! You've successfully authenticated...
+```
+
+---
+
+### Ganti Remote ke SSH
+
+```bash
+cd velvet-lab
+git remote set-url origin git@github.com:username/velvet-lab.git
+git remote -v
+```
+
+---
+
+# 🌿 Git Workflow
+
+## 🌱 Mulai Kerja (Gunakan Branch Baru)
+
+> ❗ Jangan langsung bekerja di `main` / `master`
+
+```bash
+git checkout -b feature/nama-fitur
+git add .
+git commit -m "add: initial README for velvet lab"
+git push origin feature/nama-fitur
+```
+
+---
+
+## 🔀 Merge ke Main / Master
+
+### ✅ Cara Aman (Recommended - via GitHub)
+
+1. Buka repository di GitHub
+2. Buat Pull Request (PR)
+3. Review & Merge
+
+---
+
+### ⚡ Cara Cepat (Local)
+
+```bash
+git checkout main
+git pull origin main
+git merge feature/nama-fitur
+git push origin main
+```
+
+---
+
+## 🧹 Clean Up Branch
+
+```bash
+git branch -d feature/nama-fitur
+git push origin --delete feature/nama-fitur
+```
+
+---
+
+## 📝 Format Commit
+
+* `add:` init atau tambah file baru
+* `del:` hapus fitur
+* `feat:` fitur baru
+* `fix:` bug fix
+* `docs:` dokumentasi
+* `refactor:` refaktor kode (improvement)
+* `test:` unit testing
+* `chore:` lainnya
+
+---
