@@ -1,0 +1,40 @@
+# Core API & HTTP
+requests==2.33.0
+httpx==0.28.1
+terminal-shop==1.16.0 # Terminal.shop SDK
+
+# TUI & Display
+rich==14.3.3
+textual==8.2.1 # Alternative TUI framework (lebih advanced)
+textual-dev==1.8.0 # Untuk fitur-fitur terbaru Textual
+colorama==0.4.6
+
+# SSH
+paramiko==4.0.0
+scp==0.15.0 # Untuk SCP transfers via SSH
+
+# Environment & Config
+python-dotenv==1.2.2
+pydantic==2.12.5 # Data validation
+
+# Data Processing
+pandas==3.0.1 # Opsional
+numpy==2.4.4 # Opsional
+
+# Async Support
+aiohttp==3.13.4
+asyncio-contextmanager==1.0.1
+
+# Logging & Monitoring
+loguru==0.7.3
+
+# Testing
+pytest==9.0.2
+pytest-asyncio==1.3.0
+pytest-mock==3.15.1
+
+# Code Quality
+black==26.3.1
+flake8==7.3.0
+mypy==1.19.1
+pylint==4.0.5
